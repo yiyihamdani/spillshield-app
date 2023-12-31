@@ -1,0 +1,710 @@
+<!doctype html>
+
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>SpilShield</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+        
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoZXC350U9kz8IIVeGsyACyWEu4qP4psE"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/earthengine/0.1.365/earthengine-api.min.js"></script>
+    
+    </head>
+    
+    <body id="top">
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <i class="bi-back"></i>
+                        <span>SpillShield</span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Beranda</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">Topik</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">Tentang</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">Dampak</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_5">Peta</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kontak</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="topics-listing.html">Topics Listing</a></li>
+
+                                    <li><a class="dropdown-item" href="contact.html">Contact Form</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <h1 class="text-white text-center">Oil Spill Detection</h1>
+
+                            <h6 class="text-center">Jelajahi dampak dan peta tumpahan minyak dengan cara yang belum pernah Anda alami sebelumnya! </h6>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            
+
+            <section class="featured-section">
+                <div class="container">
+                    <div class="row justify-content-center">
+
+                        <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                            <div class="custom-block bg-white shadow-lg">
+
+                                    <div class="d-flex">
+                                        <div>
+                                            <h5 class="mb-2">Unggah Gambar</h5>
+                                        </div>
+                                    </div>
+
+                                    <br/>
+                                    <div class="mb-3">
+                                        <form action="/submit" method="post" enctype="multipart/form-data">
+                                            <input class="form-control-file" type="file" id="file" name="file">
+                                        </form>
+                                    </div>
+
+                                    <div class="col-lg-12 col-12">
+                                        <button type="submit" class="form-control btn custom-btn mt-2 mt-lg-3" value="Upload">Telusuri</button>
+                                    </div>
+
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="custom-block custom-block-overlay">
+                                <div class="d-flex flex-column h-100">
+                                    
+                                    <div class="custom-block-overlay-text d-flex">
+                                        <div>
+                                            <h5 class="text-white mb-2">Hasil</h5>
+                                            {% if predictionxception %}
+                                            <img src="{{img_path}}" alt="gambar prediksi" height="50%" width="50%"><br>
+                                            <p class="text-white">Hasil</p>
+                                            <!-- <h4> Confidence : <i> {{confidenceexception}} </i></h4><br> -->
+                                        </div>
+
+                                    </div>
+                                    <div class="section-overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+    
+            <section class="explore-section section-padding" id="section_2">
+                <div class="container">
+
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">Topik Berita</h1>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Informasi  Terkini</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Dampak Lingkungan dan Ekologis</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Penanganan Krisis dan Respon Darurat</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="berita_utama.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Berita Utama</h5>
+
+                                                            <p class="mb-0">Tumpahan Minyak Semakin Mengancam!</p>
+                                                        </div>
+
+                                                        <span class="badge bg-design rounded-pill ms-auto">14</span>
+                                                    </div>
+
+                                                    <img src="images/topics/Oilspill_143.jpg" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="Peta_Interaktif.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Peta Interaktif</h5>
+
+                                                                <p class="mb-0">Jelajahi Tumpahan Minyak dengan sebaran peta!</p>
+                                                        </div>
+
+                                                        <span class="badge bg-design rounded-pill ms-auto">75</span>
+                                                    </div>
+
+                                                    <img src="images/topics/oil_spill_areas.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="data_statistik.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Data Statistik</h5>
+
+                                                                <p class="mb-0">Hitung Resiko Tumpahan Minyak dengan Data Statistik!</p>
+                                                        </div>
+
+                                                        <span class="badge bg-design rounded-pill ms-auto">100</span>
+                                                    </div>
+
+                                                    <img src="images/topics/grafik_tumpahan.jpg" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                                <div class="custom-block bg-white shadow-lg">
+                                                    <a href="PIK.html">
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <h5 class="mb-2">Studi Kasus Perairan Jakarta</h5>
+
+                                                                <p class="mb-0">Menggali Lebih Dalam Oil Spill di Jakarta</p>
+                                                            </div>
+
+                                                            <span class="badge bg-advertising rounded-pill ms-auto">30</span>
+                                                        </div>
+
+                                                        <img src="images/topics/oil.jpg" class="custom-block-image img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                                <div class="custom-block bg-white shadow-lg">
+                                                    <a href="analisis.html">
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <h5 class="mb-2">Analisis Kualitas Air Sekitar Tumpahan</h5>
+
+                                                                <p class="mb-0">Kenali Parameter Tumpahan Minyak</p>
+                                                            </div>
+
+                                                            <span class="badge bg-advertising rounded-pill ms-auto">65</span>
+                                                        </div>
+
+                                                        <img src="images/topics/salinitas.jpg" class="custom-block-image img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="col-lg-4 col-md-6 col-12">
+                                                <div class="custom-block bg-white shadow-lg">
+                                                    <a href="analisis copy.html">
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <h5 class="mb-2">Strategi Pemulihan Ekosistem</h5>
+
+                                                                <p class="mb-0">Kenali Parameter Tumpahan Minyak</p>
+                                                            </div>
+
+                                                            <span class="badge bg-advertising rounded-pill ms-auto">50</span>
+                                                        </div>
+
+                                                        <img src="images/topics/before_oil_spill.png" class="custom-block-image img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                  </div>
+
+                                <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab" tabindex="0">   <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="proses_darurat.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Prosedur Darurat</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-finance rounded-pill ms-auto">30</span>
+                                                    </div>
+
+                                                    <img src="images/topics/undraw_Finance_re_gnv2.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="custom-block custom-block-overlay">
+                                                <div class="d-flex flex-column h-100">
+                                                    <img src="images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg" class="custom-block-image img-fluid" alt="">
+
+                                                    <div class="custom-block-overlay-text d-flex">
+                                                        <div>
+                                                            <h5 class="text-white mb-2">Rencana Restorasi Ekosistem</h5>
+
+                                                            <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint animi necessitatibus aperiam repudiandae nam omnis</p>
+                                                        </div>
+
+                                                        <span class="badge bg-finance rounded-pill ms-auto">25</span>
+                                                    </div>
+
+                                                    
+
+                                                    <div class="section-overlay"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="music-tab-pane" role="tabpanel" aria-labelledby="music-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Composing Song</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-music rounded-pill ms-auto">45</span>
+                                                    </div>
+
+                                                    <img src="images/topics/undraw_Compose_music_re_wpiw.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Online Music</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-music rounded-pill ms-auto">45</span>
+                                                    </div>
+
+                                                    <img src="images/topics/undraw_happy_music_g6wc.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Podcast</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-music rounded-pill ms-auto">20</span>
+                                                    </div>
+
+                                                    <img src="images/topics/undraw_Podcast_audience_re_4i5q.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="education-tab-pane" role="tabpanel" aria-labelledby="education-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-3">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Graduation</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-education rounded-pill ms-auto">80</span>
+                                                    </div>
+
+                                                    <img src="images/topics/undraw_Graduation_re_gthn.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Educator</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-education rounded-pill ms-auto">75</span>
+                                                    </div>
+
+                                                    <img src="images/topics/undraw_Educator_re_ju47.png" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="timeline-section section-padding" id="section_3">
+                <div class="section-overlay"></div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="text-white mb-4">Apa Itu Tumpahan Minyak?</h1>
+                        </div>
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <div class="timeline-container">
+                                <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                                    <div class="list-progress">
+                                        <div class="inner"></div>
+                                    </div>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Tumpahan Minyak</h4>
+
+                                        <p class="text-white">Tumpahan minyak di laut adalah lepasnya minyak baik langsung atau tidak langsung ke
+                                            lingkungan laut yang berasal dari kegiatan pelayaran, kegiatan pengusahaan minyak
+                                            dan gas bumi, atau kegiatan lain .  </p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-search"></i>
+                                        </div>
+                                    </li>
+                                    
+                                    <li>
+                                        <h4 class="text-white mb-3">Penanganan</h4>
+
+                                        <p class="text-white">Dalam menanggapi tumpahan minyak, langkah-langkah penanganan menjadi krusial untuk menjaga ekosistem dan kesehatan lingkungan. Pertama, respons cepat menjadi kunci; tim darurat harus segera dikerahkan untuk mengisolasi dan membatasi penyebaran minyak. Penggunaan teknologi canggih seperti dispersan kimia dan teknik penyerapan secara mekanis membantu mengatasi tumpahan dengan efektif. Selain itu, rehabilitasi habitat alami juga dilakukan untuk memulihkan ekosistem yang terkena dampak. Penggunaan teknologi inovatif, seperti drone dan sensor lingkungan, memainkan peran vital dalam pemantauan dan evaluasi dampak jangka panjang.</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-bookmark"></i>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Riwayat</h4>
+
+                                        <p class="text-white">Pada tanggal 5 Mei 2022, Jakarta, Indonesia, mengalami peristiwa tragis dengan tumpahan minyak yang mengakibatkan dampak ekologis serius. Kejadian ini berawal dari kebocoran pipa minyak di sepanjang wilayah perkotaan, menciptakan kekhawatiran mendalam terkait kesehatan masyarakat dan kerusakan lingkungan. Para ahli segera bergerak cepat untuk mengevaluasi dampaknya, memahami bahwa tindakan segera diperlukan.</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-book"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="faq-section section-padding" id="section_4">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <h2 class="mb-4">Dampak Tumpahan Minyak</h2>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-lg-5 col-12">
+                            <img src="images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
+                        </div>
+
+                        <div class="col-lg-6 col-12 m-auto">
+                            <div class="accordion" id="accordionExample">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Kerusakan Ekosistem Perairan
+                                        </button>
+                                    </h2>
+
+                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Tumpahan minyak menyebabkan kerusakan serius pada ekosistem perairan, merugikan kehidupan laut dan merusak habitat alami. Minyak yang tersebar membentuk lapisan di permukaan air, <strong>menghambat aerasi dan fotosintesis, menyebabkan penurunan kadar oksigen dan menciptakan zona mati di lingkungan tersebut.</strong> Dampak jangka panjangnya melibatkan kerusakan genetik pada organisme laut dan penurunan signifikan dalam kelimpahan dan keanekaragaman hayati perairan. 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Ancaman Terhadap Kehidupan Laut
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Tumpahan minyak membawa ancaman serius terhadap kehidupan laut, menciptakan kondisi berbahaya bagi makhluk hidup di dalamnya. Minyak yang mencapai perairan <strong>dapat merusak habitat laut, mengancam keberlanjutan ekosistem, dan menyebabkan penurunan drastis dalam populasi spesies laut yang terdampak.</strong> Ancaman ini tidak hanya mengakibatkan kerusakan fisik pada organisme, tetapi juga memiliki dampak ekologis jangka panjang yang mempengaruhi rantai makanan dan keseimbangan ekosistem laut.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Gangguan Terhadap Mata Pencaharian
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Tumpahan minyak mengakibatkan gangguan serius terhadap mata pencaharian masyarakat pesisir yang bergantung pada sumber daya perairan. Nelayan dan industri perikanan menjadi terdampak dengan penurunan hasil tangkapan ikan akibat kontaminasi minyak di perairan. Selain itu, sektor pariwisata pesisir juga mengalami <code>penurunan signifikan</code> karena keindahan alam yang tercemar, menciptakan tekanan ekonomi yang berkelanjutan pada komunitas lokal.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Kerusakan Pantai dan Hutan Mangrove
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Tumpahan minyak merusak ekosistem pesisir dengan merusak pantai dan hutan mangrove yang kaya akan keanekaragaman hayati. Minyak yang mencapai garis pantai dapat mengotori pasir, merusak ekosistem laut dangkal, dan membahayakan kehidupan masyarakat pesisir. Kerusakan pada hutan mangrove juga dapat terjadi, mengancam perlindungan alam dan fungsi penyangga mangrove terhadap badai dan gelombang laut.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingFive">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        Dampak Pada Kesehatan Manusia
+                                    </button>
+                                    </h2>
+
+                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            Tumpahan minyak memiliki dampak serius pada kesehatan masyarakat yang tinggal di sekitar wilayah terdampak. Paparan terhadap zat-zat kimia berbahaya dalam minyak dapat menyebabkan masalah pernapasan, iritasi mata, dan gangguan kesehatan kulit. Selain itu, konsumsi sumber daya laut yang terkontaminasi dapat membawa risiko kesehatan jangka panjang, menciptakan tantangan kesehatan masyarakat yang harus diatasi secara serius.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="contact-section section-padding section-bg" id="section_5">
+                <div class="">
+                    <div class="row">
+                        <div class="col-lg-12 col-12 text-center">
+                            <h2 class="mb-5">Peta Persebaran Oil Spill</h2>
+                    </div>
+                </div>
+                <div>
+                    <iframe src="https://ee-yiyihamdani.projects.earthengine.app/view/oillspill" width="100%" height="750" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+        </main>
+
+   
+
+
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script>
+            // JavaScript code goes here.
+        </script>
+
+        <script>
+            (function ($) {
+                "use strict";
+
+                jQuery('#vmap').vectorMap({
+                    map: 'world_en',
+                    backgroundColor: null,
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#1de9b6',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#1de9b6', '#03a9f5'],
+                    normalizeFunction: 'polynomial'
+                });
+            })(jQuery);
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            const form = document.querySelector("form");
+            const confidencenasnet = document.getElementById("confidencenasnet");
+            const predictionnasnet = document.getElementById("predictionnasnet");
+            const confidencevgg = document.getElementById("confidencevgg");
+            const predictionvgg = document.getElementById("predictionvgg");
+            const confidenceexception= document.getElementById("confidenceexception");
+            const predictionxception = document.getElementById("predictionxception");
+            const confidencecnn = document.getElementById("confidencecnn");
+            const predictioncnn = document.getElementById("predictioncnn");
+
+            form.addEventListener("submit", (e) => {
+            confidencenasnet.innerHTML = '';
+            predictionnasnet.innerHTML = '';
+            confidencevgg.innerHTML = '';
+            predictionvgg.innerHTML = '';
+            confidenceexception.innerHTML = '';
+            predictionxception.innerHTML = '';
+            confidencecnn.innerHTML = '';
+            predictioncnn.innerHTML = '';
+            e.preventDefault();
+            const formData = new FormData(form);
+            axios
+                .post("/submit", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+                })
+                .then((res) => {
+                document.getElementById("image").src = `${res.data.data.filename}`;
+                confidencevgg.append(res.data.data.confidencevgg);
+                predictionvgg.append(res.data.data.predictionvgg);
+                console.log(res.data.data);
+                })
+                .catch((err) => {
+                console.log(err);
+                });
+            });
+        </script>
+
+        <script src="/static/pestectionadmin/assets/js/vendor/jquery-2.1.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+        <script src="/static/pestectionadmin/assets/js/vendor/jquery-2.1.4.min.js"></script>
+        <script src="/static/pestectionadmin/assets/js/popper.min.js"></script>
+        <script src="/static/pestectionadmin/assets/js/plugins.js"></script>
+        <script src="/static/pestectionadmin/assets/js/main.js"></script>
+        <script src="/static/pestectionadmin/assets/js/lib/chart-js/Chart.bundle.js"></script>
+
+
+        <script src="/static/pestectionadmin/assets/js/lib/chart-js/Chart.bundle.js"></script>
+        <script src="/static/pestectionadmin/assets/js/dashboard.js"></script>
+        <script src="/static/pestectionadmin/assets/js/widgets.js"></script>
+        <script src="/static/pestectionadmin/assets/js/lib/vector-map/jquery.vmap.js"></script>
+        <script src="/static/pestectionadmin/assets/js/lib/vector-map/jquery.vmap.min.js"></script>
+        <script src="/static/pestectionadmin/assets/js/lib/vector-map/jquery.vmap.sampledata.js">
+        </script>
+        <script src="/static/pestectionadmin/assets/js/lib/vector-map/country/jquery.vmap.world.js">
+        </script>
+
+    </body>
+</html>
