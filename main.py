@@ -5,6 +5,8 @@ from PIL import Image
 
 from util import classify
 
+import pandas as pd
+
 # Set title
 st.title('Klasifikasi Tumpahan Minyak')
 
