@@ -2,7 +2,7 @@ import pickle
 import numpy as np
 import streamlit as st
 
-from until import classify
+from util import classify
 
 #set title 
 st.title('Klasifikasi Tumpahan Minyak')
