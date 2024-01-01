@@ -1,34 +1,34 @@
 import pickle
 import numpy as np
 import streamlit as st
+from PIL import Image
 
 from util import classify
 
-#set title 
+# Set title
 st.title('Klasifikasi Tumpahan Minyak')
 
-#set header
+# Set header
 st.header('Unggah Gambar')
 
-#upload file
+# Upload file
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
-#load classifer
-model - load_model('./model/copymodel.h5')
+# Load classifier
+model = load_model('./model/copymodel.h5')
 
-"load class names"
+# Load class names
 with open('./model/labels-ril.txt', 'r') as f:
-  class_names = [a[:-1].split('')[1] for a in f.readlines()]
-  f.close()
+    class_names = [a[:-1].split(' ')[1] for a in f.readlines()]
 
-#display image
+# Display image
 if file is not None:
-  image = Image.open(file).convert('RGB')
-  st.image(image, use_column_width-True)
+    image = Image.open(file).convert('RGB')
+    st.image(image, use_column_width=True)
 
-  #classify image
-  class_name, conf_score - classify(image, model, class_name)
+    # Classify image
+    class_name, conf_score = classify(image, model, class_names)
 
-  #write classification
-  st.write("## {}".format(class_name))
-  st.write("### Prediksi: {}%". format(int(conf_score *1000) / 10))
+    # Write classification
+    st.write("## {}".format(class_name))
+    st.write("### Prediksi: {}%".format(int(conf_score * 1000) / 10))
