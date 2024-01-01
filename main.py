@@ -6,6 +6,11 @@ from PIL import Image
 from util import classify
 
 import pandas as pd
+import jcopdl
+import matplotlib.pyplot as plt
+import torch
+from torch import nn, optim
+from jcopdl.callback import Callback, set_config
 
 # Set title
 st.title('Klasifikasi Tumpahan Minyak')
