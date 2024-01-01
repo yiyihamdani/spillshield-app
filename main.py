@@ -14,7 +14,7 @@ st.header('Unggah Gambar')
 file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 
 #load classifer
-model - load_model('./model/model.h5')
+model - load_model('./model/copymodel.h5')
 
 "load class names
 with open('./model/labels-ril.txt', 'r') as f:
