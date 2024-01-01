@@ -16,7 +16,7 @@ file = st.file_uploader('', type=['jpeg', 'jpg', 'png'])
 #load classifer
 model - load_model('./model/copymodel.h5')
 
-"load class names
+"load class names"
 with open('./model/labels-ril.txt', 'r') as f:
   class_names = [a[:-1].split('')[1] for a in f.readlines()]
   f.close()
