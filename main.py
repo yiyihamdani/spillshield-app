@@ -3,7 +3,7 @@ import numpy as np
 import streamlit as st
 from PIL import Image
 
-from util import classify
+from until import classify
 
 import pandas as pd
 import jcopdl
