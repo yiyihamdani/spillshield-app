@@ -1,7 +1,10 @@
-numpy
-streamlit
+numpy==1.23.5
+streamlit==1.22.0
 seaborn
 matplotlib
 pandas
 joblib
 sciki-learn
+Pilllow==9.5.0
+keras==1.12.0
+tensorflow==2.12.0
